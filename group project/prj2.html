@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .gallery-section {
+      background-color: white;
+      padding: 3rem 1rem;
+    }
+
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #5b1510;
+    }
+
+    .gallery-section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .tab-button {
+      padding: 0.5rem 1.2rem;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      background-color: #5b1510;
+      color: white;
+    }
+
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <section id="photo-gallery" class="gallery-section">
+    <h2>Photo Gallery</h2>
+    <p>
+      Explore our featured events and decorations below. Click on the categories to filter the images by event type.
+    </p>
+
+    <!-- Tabs -->
+    <div class="tab-container">
+      <button class="tab-button active" onclick="filterGallery('all', event)">All</button>
+      <button class="tab-button" onclick="filterGallery('wedding', event)">Wedding Decor</button>
+      <button class="tab-button" onclick="filterGallery('corporate', event)">Corporate Event</button>
+      <button class="tab-button" onclick="filterGallery('music', event)">Music & Entertainment</button>
+      <button class="tab-button" onclick="filterGallery('private', event)">Private Parties</button>
+      <button class="tab-button" onclick="filterGallery('others', event)">Other Events</button>
+    </div>
+
+    <!-- Gallery Images -->
+    <div class="gallery">
+      <img src="image1.jpg" class="gallery-item wedding" alt="Wedding Decor">
+      <img src="image2.jpg" class="gallery-item corporate" alt="Corporate Event">
+      <img src="image3.jpg" class="gallery-item music" alt="Music & Entertainment">
+      <img src="image4.jpg" class="gallery-item private" alt="Private Party">
+      <img src="image5.jpg" class="gallery-item others" alt="Other Events">
+      <img src="image6.jpg" class="gallery-item wedding" alt="Wedding Decor">
+    </div>
+  </section>
+
+  <script>
+    function filterGallery(category, event) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'block';
+        } else {
+          item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

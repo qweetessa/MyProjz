@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart To-Do Dashboard</title>
+  <link rel="stylesheet" href="pg1.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>MyTasks</h2>
+      <nav>
+        <ul>
+          <li>🏠 Home</li>
+          <li>📥 Inbox</li>
+          <li>📅 Today</li>
+          <li>📆 Upcoming</li>
+          <li>✅ Completed</li>
+          <li>🧠 Focus Mode</li>
+        </ul>
+        <h3>Projects</h3>
+        <ul>
+          <li class="project">🎨 UX Redesign</li>
+          <li class="project">📚 Study Plan</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Good evening, Iqra 👋</h1>
+        <input type="text" placeholder="Search tasks..." />
+      </header>
+
+      <section class="task-grid">
+        <div class="task-card high">
+          <h3>Finish UX Report</h3>
+          <p>Due: Today • Priority: High</p>
+        </div>
+        <div class="task-card medium">
+          <h3>Team Meeting Notes</h3>
+          <p>Due: Tomorrow • Priority: Medium</p>
+        </div>
+        <div class="task-card low">
+          <h3>Brainstorm Ideas</h3>
+          <p>Due: Friday • Priority: Low</p>
+        </div>
+      </section>
+
+      <footer>
+        <input type="text" placeholder="Add a new task..." />
+        <button>Add Task</button>
+      </footer>
+      <footer>
+  <input type="text" id="taskInput" placeholder="Add a new task..." />
+  <select id="prioritySelect">
+    <option value="low">Low</option>
+    <option value="medium" selected>Medium</option>
+    <option value="high">High</option>
+  </select>
+  <input type="date" id="dueDate" />
+  <button id="addBtn">Add Task</button>
+  <button id="toggleDark">🌙</button>
+</footer>
+    </main>
+  </div>
+  <script>
+  const taskInput = document.getElementById("taskInput");
+  const prioritySelect = document.getElementById("prioritySelect");
+  const dueDate = document.getElementById("dueDate");
+  const addBtn = document.getElementById("addBtn");
+  const taskGrid = document.querySelector(".task-grid");
+  const toggleDark = document.getElementById("toggleDark");
+
+  // Load tasks and theme
+  window.addEventListener("load", () => {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    savedTasks.forEach(task => createTaskCard(task.text, task.priority, task.due, task.completed));
+    if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
+  });
+
+  // Add new task
+  addBtn.addEventListener("click", () => {
+    const text = taskInput.value.trim();
+    const priority = prioritySelect.value;
+    const due = dueDate.value || "No date";
+    if (text === "") return;
+
+    createTaskCard(text, priority, due, false);
+    saveTasks();
+    taskInput.value = "";
+    dueDate.value = "";
+  });
+
+  // Create task card
+  function createTaskCard(text, priority, due, completed) {
+    const card = document.createElement("div");
+    card.className = `task-card ${priority}`;
+    card.innerHTML = `
+      <h3>${text}</h3>
+      <p>Due: ${due} • Priority: ${priority.charAt(0).toUpperCase() + priority.slice(1)}</p>
+      <button class="complete-btn">✅</button>
+      <button class="delete-btn">🗑️</button>
+    `;
+    if (completed) {
+      card.style.opacity = "0.5";
+      card.style.textDecoration = "line-through";
+    }
+    taskGrid.appendChild(card);
+  }
+
+  // Handle complete and delete
+  taskGrid.addEventListener("click", (e) => {
+    const card = e.target.parentElement;
+    if (e.target.classList.contains("complete-btn")) {
+      card.style.opacity = "0.5";
+      card.style.textDecoration = "line-through";
+    }
+    if (e.target.classList.contains("delete-btn")) {
+      card.remove();
+    }
+    saveTasks();
+  });
+
+  // Save tasks
+  function saveTasks() {
+    const cards = document.querySelectorAll(".task-card");
+    const tasks = [];
+    cards.forEach(card => {
+      const text = card.querySelector("h3").textContent;
+      const priority = card.classList.contains("high") ? "high" :
+                       card.classList.contains("medium") ? "medium" : "low";
+      const due = card.querySelector("p").textContent.split("•")[0].replace("Due: ", "").trim();
+      const completed = card.style.textDecoration === "line-through";
+      tasks.push({ text, priority, due, completed });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  // Dark mode toggle
+  toggleDark.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+  });
+</script>
+</body>
+</html>

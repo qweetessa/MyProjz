@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMart - Product Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category {
+            list-style: none;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .category li {
+            margin: 10px 0;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .electronics {
+            background-color: #e0f7fa;
+            border-color: #00acc1;
+        }
+
+        .fashion {
+            background-color: #fce4ec;
+            border-color: #d81b60;
+        }
+
+        .home-appliances {
+            background-color: #f3e5f5;
+            border-color: #8e24aa;
+        }
+
+        .category li:hover {
+            background-color: #333;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to SmartMart</h1>
+    <div class="categories">
+        <ul class="category electronics">
+            <li>Mobile</li>
+            <li>Laptop</li>
+            <li>Headphone</li>
+        </ul>
+        <ul class="category fashion">
+            <li>Men</li>
+            <li>Women</li>
+            <li>Kids</li>
+        </ul>
+        <ul class="category home-appliances">
+            <li>Refrigerator</li>
+            <li>Washing Machine</li>
+            <li>Oven</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title> To check number is even or odd </title>
+<script>
+    let age = prompt ("enter a your age");
+let hasID = prompt ("enter a your ID");
+    if (age>18&&hasID=='yes')
+{
+    document.write("Eligible");
+} 
+else 
+{
+    document.write("Not Eligible");   
+}
+    </script>
+</head>
+</html>

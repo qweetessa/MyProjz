@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Enquiry Form</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font */
+            background-color: #f4f7f6; /* Light background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            padding: 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Container for the form */
+        .enquiry-form-container {
+            background-color: #cbf0ec; /* White background for the form */
+            padding: 40px;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            width: 100%;
+            max-width: 500px; /* Max width for larger screens */
+            box-sizing: border-box;
+        }
+
+        /* Form title */
+        h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* Styling for each form group (label + input/select/textarea) */
+        .form-group {
+            margin-bottom: 25px; /* Increased spacing between groups */
+        }
+
+        /* Styling for labels */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600; /* Slightly bolder labels */
+            color: #555555;
+            font-size: 0.95em;
+        }
+
+        /* Styling for all text-based input fields, select, and textarea */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%; /* Full width within its container */
+            padding: 12px 15px; /* More padding for better touch targets */
+            border: 1px solid #dcdcdc; /* Lighter border color */
+            border-radius: 8px; /* Rounded corners for inputs */
+            box-sizing: border-box; /* Include padding in width */
+            font-size: 1em;
+            color: #333333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on focus */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff; /* Highlight border on focus */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle shadow on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px; /* Minimum height for textarea */
+        }
+
+        /* Styling for error messages */
+        .error-message {
+            color: #dc3545; /* Red color for errors */
+            font-size: 0.85em;
+            margin-top: 5px;
+            height: 18px; /* Reserve space to prevent layout shift */
+            visibility: hidden; /* Hidden by default */
+            opacity: 0; /* Fade in */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .error-message.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Styling for the submit button */
+        button[type="submit"] {
+            background-color: #c25a9e; /* Primary blue color */
+            color: white;
+            padding: 12px 25px; /* Generous padding */
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            width: 100%; /* Full width button */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #dcb5c8; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0); /* Press effect */
+        }
+
+        /* Small text for phone format hint */
+        small {
+            color: #888888;
+            font-size: 0.8em;
+            margin-top: -15px; /* Adjust spacing */
+            display: block;
+            margin-left: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .enquiry-form-container {
+                padding: 25px; /* Less padding on smaller screens */
+                margin: 10px; /* Add margin to prevent touching edges */
+            }
+
+            h2 {
+                font-size: 1.5em; /* Smaller title */
+                margin-bottom: 20px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select,
+            textarea,
+            button[type="submit"] {
+                padding: 10px 12px; /* Adjust padding for smaller inputs */
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="enquiry-form-container">
+        <h2>Admission Enquiry Form</h2>
+        <form id="enquiryForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required aria-describedby="nameError">
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required aria-describedby="emailError">
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required aria-describedby="phoneError">
+                <small>Format: 10 digits (e.g., 9876543210)</small>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Interested Course:</label>
+                <select id="course" name="course" required aria-describedby="courseError">
+                    <option value="">Select a Course</option>
+                    <option value="bachelor-arts">Bachelor of Arts (BA)</option>
+                    <option value="bachelor-science">Bachelor of Science (BSc)</option>
+                    <option value="bachelor-commerce">Bachelor of Commerce (BCom)</option>
+                    <option value="bachelor-technology">Bachelor of Technology (BTech)</option>
+                    <option value="master-arts">Master of Arts (MA)</option>
+                    <option value="master-science">Master of Science (MSc)</option>
+                    <option value="master-business-administration">Master of Business Administration (MBA)</option>
+                </select>
+                <div class="error-message" id="courseError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Message (Optional):</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Submit Enquiry</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to form elements and error message divs
+            const form = document.getElementById('enquiryForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const courseSelect = document.getElementById('course');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const courseError = document.getElementById('courseError');
+
+            /**
+             * Displays an error message for a given input field.
+             * @param {HTMLElement} errorElement - The div element to display the error.
+             * @param {string} message - The error message text.
+             */
+            function showError(errorElement, message) {
+                errorElement.textContent = message;
+                errorElement.classList.add('visible');
+            }
+
+            /**
+             * Hides the error message for a given input field.
+             * @param {HTMLElement} errorElement - The div element currently displaying the error.
+             */
+            function hideError(errorElement) {
+                errorElement.textContent = '';
+                errorElement.classList.remove('visible');
+            }
+
+            /**
+             * Validates an email address using a regular expression.
+             * @param {string} email - The email string to validate.
+             * @returns {boolean} - True if the email is valid, false otherwise.
+             */
+            function isValidEmail(email) {
+                // A common regex for email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            /**
+             * Validates the full name field.
+             * @returns {boolean} - True if valid, false otherwise.
+             */
+            function validateName() {
+                if (nameInput.value.trim() === '') {
+                    showError(nameError, 'Please enter your full name.');
+                    return false;
+                } else {
+                    hideError(nameError);
+                    return true;
+                }
+            }
+
+            /**
+             * Validates the email address field.
+             * @returns {boolean} - True if valid, false otherwise.
+             */
+            function validateEmail() {
+                const email = emailInput.value.trim();
+                if (email === '') {
+                    showError(emailError, 'Please enter your email address.');
+                    return false;
+                } else if (!isValidEmail(email)) {
+                    showError(emailError, 'Please enter a valid email address (e.g., example@domain.com).');
+                    return false;
+                } else {
+                    hideError(emailError);
+                    return true;
+                }
+            }
+
+            /**
+             * Validates the phone number field.
+             * @returns {boolean} - True if valid, false otherwise.
+             */
+            function validatePhone() {
+                const phone = phoneInput.value.trim();
+                // Regex for exactly 10 digits
+                if (phone === '') {
+                    showError(phoneError, 'Please enter your phone number.');
+                    return false;
+                } else if (!/^[0-9]{10}$/.test(phone)) {
+                    showError(phoneError, 'Please enter a 10-digit phone number.');
+                    return false;
+                } else {
+                    hideError(phoneError);
+                    return true;
+                }
+            }
+
+            /**
+             * Validates the course selection field.
+             * @returns {boolean} - True if valid, false otherwise.
+             */
+            function validateCourse() {
+                if (courseSelect.value === '') {
+                    showError(courseError, 'Please select an interested course.');
+                    return false;
+                } else {
+                    hideError(courseError);
+                    return true;
+                }
+            }
+
+            // Add input event listeners for real-time validation feedback
+            nameInput.addEventListener('input', validateName);
+            emailInput.addEventListener('input', validateEmail);
+            phoneInput.addEventListener('input', validatePhone);
+            courseSelect.addEventListener('change', validateCourse); // 'change' for select elements
+
+            // Add submit event listener to the form
+            form.addEventListener('submit', function(event) {
+                // Prevent default form submission initially
+                event.preventDefault();
+
+                // Run all validation functions and check if all are true
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isCourseValid = validateCourse();
+
+                // If all fields are valid, proceed with form submission logic
+                if (isNameValid && isEmailValid && isPhoneValid && isCourseValid) {
+                    // In a real application, you would send this data to a server
+                    // For demonstration, we'll just show an alert and reset the form
+                    alert('Enquiry submitted successfully!\n\n' +
+                          'Full Name: ' + nameInput.value.trim() + '\n' +
+                          'Email: ' + emailInput.value.trim() + '\n' +
+                          'Phone: ' + phoneInput.value.trim() + '\n' +
+                          'Course: ' + courseSelect.options[courseSelect.selectedIndex].text + '\n' +
+                          'Message: ' + (message.value.trim() || 'N/A'));
+
+                    form.reset(); // Reset the form fields
+                    // Hide any lingering error messages after successful submission
+                    hideError(nameError);
+                    hideError(emailError);
+                    hideError(phoneError);
+                    hideError(courseError);
+                } else {
+                    // If validation fails, scroll to the first invalid field
+                    const firstInvalidField = document.querySelector('.error-message.visible');
+                    if (firstInvalidField) {
+                        firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

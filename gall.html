@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow (Inline CSS)</title>
+    <style>
+        
+        body {
+        background-color: #f0f0f0;
+        background-image: url('https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600');
+        background-size: cover;
+        background-position: center;
+      }
+      header {
+            background-color: #007bff;
+            padding: 1rem;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            background-color: #343a40;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2c3e50;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            padding: 0;
+            border: 1px solid #4a5568;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #6b7280;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffc107;
+            color: #2c3e50;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .dropdown-content {
+                width: 100%;
+                left: 0;
+            }
+        }
+      .slideshow-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px; /* Adjust as needed */
+        margin: auto;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        height: auto;
+      }
+
+      .slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: rgb(219, 219, 219);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0,0,0,0.5);
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+      }
+
+      .dots-container {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #410c0c;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active, .dot:hover {
+        background-color: #996060;
+      }
+
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
+      .banner {
+        width: 100%;
+        background-color: rgba(37, 3, 3, 0.688);
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        font-family: 'Brush Script MT', cursive;
+        backdrop-filter: blur(4px);
+        font-weight: bold;
+      }
+      @import url('https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap');
+    </style>
+</head>
+<body>
+    <div class="banner">Gallery</div>
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 3">
+    </div>
+    <div class="slide fade">
+        <img src="https://images.pexels.com/photos/7159858/pexels-photo-7159858.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 3">
+      </div>
+      <div class="slide fade">
+        <img src="https://media.istockphoto.com/id/2200874395/photo/loving-groom-and-bride-in-wedding-ceremony.jpg?s=612x612&w=0&k=20&c=ijlBNBK1WtpQ0Qa1dtnMZYYOu639bLFgVZqRS-Xm8zY=" alt="Image 3">
+      </div>
+      <div class="slide fade">
+        <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 3">
+      </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
+
+</body>
+</html>

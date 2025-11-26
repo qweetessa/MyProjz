@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todoist Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex bg-gray-50">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-white shadow-lg flex flex-col transition-all duration-300">
+    <div class="flex items-center justify-between p-4 border-b">
+      <h2 class="font-bold text-lg">Iqra</h2>
+      <button onclick="toggleSidebar()" class="md:hidden">
+        ☰
+      </button>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2">
+      <button onclick="addTaskForm()" class="w-full text-left text-red-500 font-semibold">+ Add task</button>
+      <a href="#" class="block px-2 py-2 rounded hover:bg-gray-100">Inbox <span class="ml-2 bg-red-100 text-red-500 text-xs px-2 py-0.5 rounded">1</span></a>
+      <a href="#" class="block px-2 py-2 rounded hover:bg-gray-100">Today <span class="ml-2 bg-blue-100 text-blue-500 text-xs px-2 py-0.5 rounded">2</span></a>
+      <a href="#" class="block px-2 py-2 rounded hover:bg-gray-100">Upcoming</a>
+      <a href="#" class="block px-2 py-2 rounded hover:bg-gray-100">Completed</a>
+    </nav>
+
+    <div class="p-4 border-t">
+      <h3 class="text-sm font-semibold text-gray-500 mb-2">My Projects</h3>
+      <a href="#" class="block px-2 py-2 rounded hover:bg-gray-100">Getting Started 👋</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">Inbox</h1>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="space-y-3">
+      <li class="flex items-start space-x-3 p-3 bg-white shadow rounded-lg">
+        <input type="checkbox" class="mt-1">
+        <div class="flex-1">
+          <p class="font-medium">Homework</p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Add Task Form -->
+    <div id="taskForm" class="hidden mt-6 bg-white shadow rounded-lg p-4">
+      <textarea id="taskInput" class="w-full border rounded p-2 mb-3" rows="2" placeholder="Organize family photos Sunday p3"></textarea>
+      <div class="flex items-center space-x-3">
+        <button class="px-4 py-2 bg-red-500 text-white rounded" onclick="saveTask()">Add task</button>
+        <button class="px-4 py-2 bg-gray-200 rounded" onclick="cancelTask()">Cancel</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("hidden");
+    }
+
+    function addTaskForm() {
+      document.getElementById("taskForm").classList.remove("hidden");
+    }
+
+    function cancelTask() {
+      document.getElementById("taskForm").classList.add("hidden");
+    }
+
+    function saveTask() {
+      let taskText = document.getElementById("taskInput").value.trim();
+      if (taskText === "") return;
+
+      let taskList = document.getElementById("taskList");
+      let li = document.createElement("li");
+      li.className = "flex items-start space-x-3 p-3 bg-white shadow rounded-lg";
+      li.innerHTML = `
+        <input type="checkbox" class="mt-1">
+        <div class="flex-1">
+          <p class="font-medium">${taskText}</p>
+        </div>
+      `;
+      taskList.appendChild(li);
+
+      document.getElementById("taskInput").value = "";
+      cancelTask();
+    }
+  </script>
+</body>
+</html>

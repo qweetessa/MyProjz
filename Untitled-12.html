@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostify Pricing Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .pricing-table {
+            display: flex;
+            gap: 20px;
+        }
+
+        .pricing-column {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-column h2 {
+            margin: 0 0 10px;
+        }
+
+        .pricing-column p {
+            margin: 10px 0;
+        }
+
+        .pricing-column .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .basic {
+            background-color: #e0f7fa;
+        }
+
+        .standard {
+            background-color: #e8f5e9;
+        }
+
+        .premium {
+            background-color: #fce4ec;
+        }
+    </style>
+</head>
+<body>
+    <div class="pricing-table">
+        <div class="pricing-column basic">
+            <h2>Basic</h2>
+            <p>10 GB Storage</p>
+            <p>100 GB Bandwidth</p>
+            <p>1 Domain</p>
+            <div class="price">$5/month</div>
+        </div>
+        <div class="pricing-column standard">
+            <h2>Standard</h2>
+            <p>50 GB Storage</p>
+            <p>500 GB Bandwidth</p>
+            <p>5 Domains</p>
+            <div class="price">$10/month</div>
+        </div>
+        <div class="pricing-column premium">
+            <h2>Premium</h2>
+            <p>Unlimited Storage</p>
+            <p>Unlimited Bandwidth</p>
+            <p>Unlimited Domains</p>
+            <div class="price">$20/month</div>
+        </div>
+    </div>
+</body>
+</html>

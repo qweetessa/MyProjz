@@ -1,0 +1,44 @@
+My requirement for this website-
+UI/UX- Minimalistic with soft colors, blur 
+glass effects on side panel and minimal transitions
+
+color palette-
+Hot Pink
+#FFAEBC
+
+Tiffany Blue
+#A0E7E5
+
+Mint
+#B4F8C8
+
+Yellow
+#FBE7C6
+#f6eee0
+
+Peach
+#e4b7a0
+
+Desert Sun
+#a45c40
+
+Coral
+#c38370
+fonts- https://fonts.google.com/specimen/Dancing+Script
+https://fonts.google.com/specimen/Exo+2
+https://fonts.google.com/specimen/M+PLUS+Rounded+1c
+Add Logo image -  blob:https://www.remove.bg/463488d4-0c3e-4310-bac1-a3fdeaee3d29
+add 'home' button make it functional
+and other buttons also functional
+
+Add reminders - due date , time .
+Add user  icon on corner
+using the image references as given
+Modify by adding  light and dark mode, add glass effect to the side panel also a button to open and close it.
+ Adding emails of friends in collaboration section to invite friends and create notes collectively.
+ Make a 'New notebook' a folder to keep  'new notes' also we can customize the cover of 'notebook' .
+ Remove 'Video call' , 'share note' 'Your friends'. 
+Add planner calendar for important events. add Whiteboard section for free drawable content also we can save our notes in local storage space. An  image logo.
+Add footer - 2025
+ Make it fully responsible using JS,CSS,etc
+

@@ -1,0 +1,24 @@
+div{
+    height: 600px;
+    width: 800px;
+    background-color: aquamarine;
+}
+.img{
+    width: 150px;
+    margin-top: 25px;
+    margin-bottom: 80px;
+    
+}
+.input{
+    width: 300px;
+    font-size: 15px;
+    padding: 10px;
+}
+.butn{
+    font-size: 15px;
+    margin: 40px;
+    
+}
+.butn:hover{
+    background-color: rgb(43, 230, 99);
+}

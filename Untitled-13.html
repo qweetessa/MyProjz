@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .profile-card {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .profile-card p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .profile-card .social-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .profile-card .social-links a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <img src="profile-picture.jpg" alt="Profile Picture">
+        <h2>John Doe</h2>
+        <p>Web Developer | Tech Enthusiast</p>
+        <div class="social-links">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>

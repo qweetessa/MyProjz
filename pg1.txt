@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart To-Do Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>MyTasks</h2>
+      <nav>
+        <ul>
+          <li>🏠 Home</li>
+          <li>📥 Inbox</li>
+          <li>📅 Today</li>
+          <li>📆 Upcoming</li>
+          <li>✅ Completed</li>
+          <li>🧠 Focus Mode</li>
+        </ul>
+        <h3>Projects</h3>
+        <ul>
+          <li class="project">🎨 UX Redesign</li>
+          <li class="project">📚 Study Plan</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1>Good evening, Iqra 👋</h1>
+        <input type="text" placeholder="Search tasks..." />
+      </header>
+
+      <section class="task-grid">
+        <div class="task-card high">
+          <h3>Finish UX Report</h3>
+          <p>Due: Today • Priority: High</p>
+        </div>
+        <div class="task-card medium">
+          <h3>Team Meeting Notes</h3>
+          <p>Due: Tomorrow • Priority: Medium</p>
+        </div>
+        <div class="task-card low">
+          <h3>Brainstorm Ideas</h3>
+          <p>Due: Friday • Priority: Low</p>
+        </div>
+      </section>
+
+      <footer>
+        <input type="text" placeholder="Add a new task..." />
+        <button>Add Task</button>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
