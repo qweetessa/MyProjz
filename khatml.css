@@ -1,0 +1,141 @@
+.retro-popup {
+    position: fixed;
+    width: 350px;
+    background: #fefdfd; /* Black background */
+    border: 4px solid #2600ff; /* Sharp white border */
+    color: #000000; /* Neon Matrix Green */
+    font-family: "Courier New", Courier, monospace;
+    box-shadow: 10px 10px 0px #6b6b6b; /* Neon Pink offset shadow */
+    z-index: 10000;
+}
+
+.retro-title-bar {
+    background: #0022fa;
+    color: #ffffff;
+    padding: 4px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.retro-close-btn {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.retro-content {
+    padding: 15px;
+    border-top: 2px solid #ffffff;
+    line-height: 1.4;
+}
+
+.retro-btn {
+    background: transparent;
+    border: 2px solid #ff0000;
+    color: #000000;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.retro-btn:hover {
+    background: #ff0000;
+    color: #000;
+}
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind everything */
+    background: black;
+}
+.dating-popup {
+    position: fixed;
+    width: 320px;
+    background: #ff00ff; /* Neon Pink */
+    border: 5px outset #00ffff; /* Cyber Blue Border */
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 10001;
+    box-shadow: 10px 10px 0px #000;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.dating-header {
+    background: #000;
+    color: #0f0; /* Matrix Green */
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dating-content {
+    padding: 15px;
+    background: #fff;
+    color: #ff00ff;
+    margin: 5px;
+    border: 2px solid #000;
+}
+
+.dating-btn {
+    background: #0f0;
+    color: #000;
+    border: 3px solid #000;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.dating-btn:hover {
+    background: #fff;
+    color: #ff00ff;
+}
+#troll-timer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    color: #0f0;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    border: 2px solid #0f0;
+    z-index: 999999;
+    font-weight: bold;
+}
+
+#real-close-btn {
+    display: none; /* Hidden until 90s pass */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    background: #c0c0c0;
+    border: 4px outset white;
+    font-family: "Tahoma", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000000;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.8);
+}
+
+#real-close-btn:active {
+    border: 4px inset white;
+}
