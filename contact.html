@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lumina Tea House - Contact</title>
+</head>
+<body>
+    <header>
+        <h1>Lumina Tea House</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Tea Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                   <link rel="stylesheet" href="styles.css">
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contact Us</h1>
+        <p>If you have any questions, comments, or inquiries, please feel free to reach out to us using the contact information below. We value your feedback and look forward to hearing from you!</p>
+        <ul>
+            <li>Email: <a href="mailto:info@luminateahouse.com">info@luminateahouse.com</a></li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Address: 123 Tea Street, Brew City</li>
+        </ul>
+    </main>
+        <h2>Contact Form</h2>
+        <form action="submit_contact_form.php" method="post">
+            <select name="inquiry_type" required>
+                <option value="">Select Inquiry Type</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Inquiry</option>
+                <option value="feedback">Feedback</option>
+            </select><br><br>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <input type="radio" id="contact_email" name="contact_method" value="email" checked>
+            <label for="contact_email">Email</label>
+            <input type="radio" id="contact_phone" name="contact_method" value="phone">
+            <label for="contact_phone">Phone</label><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    <footer>
+        <p>&copy; 2023 Lumina Tea House. All rights reserved.</p>
+    </footer>
+</body>
+</html>
